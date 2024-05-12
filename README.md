@@ -23,4 +23,7 @@ bin/rails server
 bin/rails generate controller Tweets index --skip-routes
 bin/rails generate model Tweet title:string body:text
 docker compose up -d
+bin/rails generate controller Users index --skip-routes
+bin/rails generate model User username:string email:string password:string
+bin/rails db:migrate
 ```
