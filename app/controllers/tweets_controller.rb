@@ -27,7 +27,6 @@ class TweetsController < ApplicationController
   end
 
   def tweet_params
-    puts "Params : #{params}"
     if params[:tweet][:body].nil?
       raise "Body is required"
     end

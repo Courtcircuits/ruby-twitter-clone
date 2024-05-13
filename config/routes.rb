@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   get "/tweet/:id", to: "tweets#show"
   post "/tweets", to: "tweets#create"
 
+  get "/users", to: "users#index"
+  get "/user/:id", to: "users#show"
+  post "/signup", to: "users#create"
+  post "/signin", to: "users#login"
+
   # Defines the root path route ("/")
   # root "posts#index"
 end
