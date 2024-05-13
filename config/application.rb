@@ -1,6 +1,7 @@
 require_relative "boot"
 
 require "rails/all"
+require_relative "../lib/middleware/auth_middleware"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -17,6 +18,8 @@ module Twitter
     config.autoload_lib(ignore: %w(assets tasks))
     config.logger = Logger.new(STDOUT)
     config.api_only = true
+
+    config.middleware.insert_before 0, AuthMiddleware
 
     # Configuration for the application, engines, and railties goes here.
     #

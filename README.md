@@ -27,3 +27,4 @@ bin/rails generate controller Users index --skip-routes
 bin/rails generate model User username:string email:string password:string
 bin/rails db:migrate
 ```
+rails generate graphql:install

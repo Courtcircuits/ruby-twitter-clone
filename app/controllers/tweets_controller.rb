@@ -10,13 +10,14 @@ class TweetsController < ApplicationController
   end
 
   def create
+    current_user = request.env[:current_user]
     begin
       validated_params = tweet_params
     rescue => e
       logger.error "Error: #{e.message}"
       return render json: {error: e.message}, status: :unprocessable_entity
     end
-    @tweet = Tweet.new(body: validated_params[:body])
+    @tweet = Tweet.new(body: validated_params[:body], user_id: current_user.id)
     if @tweet.save
       logger.info "Tweet created"
       render json: @tweet, status: :created
